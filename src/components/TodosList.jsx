@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import TodoItem from './TodoItem';
 
 const TodosList = ({ todosProps }) => (
@@ -7,4 +8,14 @@ const TodosList = ({ todosProps }) => (
     ))}
   </ul>
 );
+TodosList.propTypes = {
+  todosProps: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      completed: PropTypes.bool,
+    }),
+  ).isRequired,
+};
+
 export default TodosList;
