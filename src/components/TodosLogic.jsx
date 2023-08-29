@@ -1,3 +1,5 @@
+import InputTodo from './InputTodo';
+
 const TodosLogic = () => {
   const todos = [
     {
@@ -17,11 +19,15 @@ const TodosLogic = () => {
     },
   ];
   return (
-    <ul>
-      {todos.map((todo) => (
-        <li key={todo.id}>{todo.title}</li>
-      ))}
-    </ul>
+    <div>
+      <InputTodo />
+      <ul>
+        {todos.map((todo) => (
+          <li key={todo.id}>{todo.title}</li>
+        ))}
+      </ul>
+    </div>
+
   );
 };
 export default TodosLogic;
