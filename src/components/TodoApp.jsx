@@ -1,5 +1,5 @@
-import Header from 'Header';
-import TodosLogic from 'TodosLogic';
+import Header from './Header';
+import TodosLogic from './TodosLogic';
 
 const TodoApp = () => (
   <div>
