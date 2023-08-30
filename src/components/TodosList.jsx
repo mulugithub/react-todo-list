@@ -1,13 +1,18 @@
 import PropTypes from 'prop-types';
 import TodoItem from './TodoItem';
 
-const TodosList = ({ todosProps }) => (
+const TodosList = ({ todosProps, handleChange }) => (
   <ul>
     {todosProps.map((todo) => (
-      <TodoItem key={todo.id} itemProp={todo} />
+      <TodoItem
+        key={todo.id}
+        itemProp={todo}
+        handleChange={handleChange}
+      />
     ))}
   </ul>
 );
+
 TodosList.propTypes = {
   todosProps: PropTypes.arrayOf(
     PropTypes.shape({
@@ -16,6 +21,7 @@ TodosList.propTypes = {
       completed: PropTypes.bool,
     }),
   ).isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default TodosList;
