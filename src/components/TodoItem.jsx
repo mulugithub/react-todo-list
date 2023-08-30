@@ -8,6 +8,7 @@ import styles from '../styles/TodoItem.module.css';
 const TodoItem = ({
   itemProp, handleChange, delTodo, setUpdate,
 }) => {
+  const [updateInput, setUpdateInput] = useState(itemProp.title);
   const completedStyle = {
     fontStyle: 'italic',
     color: '#595959',
@@ -18,6 +19,7 @@ const TodoItem = ({
   // ...
   const handleUpdatedDone = (event) => {
     if (event.key === 'Enter') {
+      setUpdate(updateInput, itemProp.id);
       setEditing(false);
     }
   };
@@ -51,15 +53,15 @@ const TodoItem = ({
           <FaTrash style={{ color: 'red', fontSize: '16px' }} />
         </button>
         <span style={itemProp.completed ? completedStyle : null}>
-          {itemProp.title}
+          {updateInput}
         </span>
       </div>
       <input
         style={editMode}
         type="text"
-        value={itemProp.title}
+        value={updateInput}
         className={styles.textInput}
-        onChange={(e) => setUpdate(e.target.value, itemProp.id)}
+        onChange={(e) => setUpdateInput(e.target.value, itemProp.id)}
         onKeyDown={handleUpdatedDone}
       />
     </li>
